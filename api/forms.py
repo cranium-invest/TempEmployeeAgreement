@@ -40,7 +40,8 @@ class ContractForm(forms.ModelForm):
             ]),
             'company_name': forms.Select(choices=[
                 ('', ''),
-                ('Cranium Investments (Pty) Ltd', 'Cranium Investments (Pty) Ltd')
+                ('Cranium Investments (Pty) Ltd', 'Cranium Investments (Pty) Ltd'),
+                ('Private-I corp', 'Private-I corp')
             ]),
         }
 
