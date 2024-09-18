@@ -10,6 +10,9 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.conf import settings
+from datetime import datetime
+from django.templatetags.static import static
+from docx import Document
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +61,13 @@ def edit_contract(request, contract_id):
 
 def download_contract(request, contract_id):
     contract = get_object_or_404(Contracts_completed, id=contract_id)
-    html_string = render_to_string('contract_template.html', {'contract': contract})
+    
+    image_url = request.build_absolute_uri(static('images/signature.png'))
+
+    current_date = datetime.now()
+    
+    html_string = render_to_string('contract_template.html', {'contract': contract, 'image_url': image_url, 'current_date': current_date})
+    
     result = BytesIO()
     pdf = pisa.CreatePDF(html_string, dest=result)
 
@@ -67,12 +76,21 @@ def download_contract(request, contract_id):
         response['Content-Disposition'] = f'attachment; filename="contract_{contract.id}.pdf"'
         return response
     else:
-        logger.error("Error generating PDF: %s", pdf.err)
         return HttpResponse("Error generating PDF")
 
 def show_view(request, contract_id):
     contract = get_object_or_404(Contracts_completed, id=contract_id)
-    return render(request, 'contract_template.html', {'contract': contract})
+
+    current_date = datetime.now()
+    image_url = request.build_absolute_uri(static('images/signature.png'))
+
+    context = {
+        'contract': contract,
+        'current_date': current_date,
+        'image_url':image_url
+    }
+
+    return render(request, 'contract_template.html', context)
 
 def contact_view(request):
     return render(request, 'contact.html')

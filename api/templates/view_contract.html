@@ -8,7 +8,6 @@
     <style>
  
         body {
-            font-family: "Courier New", Courier, monospace;
             margin: 0;
             padding: 20px;
             background-color: white;
@@ -57,27 +56,7 @@
             text-align: start;
             }
 
-            .signature-item-c {
-            width: 10%;
-            margin-left: 70px;
-            text-align: center;
-            }
 
-        .signature-line {
-            border-bottom: 0px solid #333;
-            width: 40%;
-            margin: 0 auto;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-
-        .signature-img {
-            display: block;
-            margin: 0 auto;
-            width: auto;
-            height: 60px;
-        }
 
         .signature-placeholder {
             font-size: 12px;
@@ -156,6 +135,13 @@
             color: #ffffff;
         }
 
+        .signature-img {
+                background-color: white;
+                color: black;
+                padding: 0px;
+                width: 250px;
+            }
+            
         .last-text-fot {
             width: 100%;
             text-align: center;
@@ -182,7 +168,23 @@
         button:hover {
             background: #333;
         }
+    
+        .main-font {
+            font-size: 20px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
 
+        p{
+            font-size: 16px;
+        }
+
+        .l-main {
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
+            font-weight: lighter;
+            color: #363535;
+        }
     </style>
 </head>
 <body>
@@ -201,109 +203,106 @@
         </header>
     </section>
 <section>
-    <br></br>
-    <br></br>
+    <br><br>
+    <h2 class="main-font" style="margin-left: 155px;">AGREEMENT ENTERED INTO BY AND BETWEEN</h2>
+    <p style="font-size: 'Times New Roman', serif; font-size: 17px; font-weight: bold;">{{ contract.company_name }}</p>
+    <p>and</p>
+    <p style> <strong>{{ contract.name }}</strong> (full name and identity number)
+        (HEREIN REFERRED AS THE “INTERN”) </p>
 
-    <h4 style="display: inline; border-bottom: 1px dashed #000; padding-bottom: 2px;">Agreement:</h4>
-    <br></br>
-     
-    <p>
-        <span>{{ contract.name }}</span>
-        <span style="margin-left: 62px;">{{ contract.street_number_and_name}}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 170px;">{{ contract.phone_cell }}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 170px;">{{ contract.email }}</span>
-    </p>
-    <br></br>
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">{{ contract.school }}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">Contact person: {{ contract.school_contact_person }}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">{{ contract.school_email }}</span>
-    </p>
-    <br>
+    <h2 class="main-font">PREAMBLE</h2>
+    <p>WHEREAS the <strong>{{  contract.intern_title }}</strong> requires practical work experience and application of academic </p>
+    <p>learning; and</p>
+    <p> WHEREAS <b>{{ contract.company_name }}</b> is prepared and able to provide such an opportunity;</p>
 
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">{{ contract.company_name }}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">{{ contract.company_street_number_and_name }}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">{{  contract.intern_title }}</span>
-    </p>
-    <p>
-        <span></span>
-        <span style="margin-left: 90px;">{{ contract.start_date }} - {{ contract.end_date }}</span>
-    </p>
-    <br>
-    <p style="color: rgb(51, 51, 51);">
-        This agreement, executed on this date, constitutes a legally binding one between {{ contract.company_name }}, a duly registered entity with its principal place of business at {{ contract.company_street_number_and_name }} {{ contract.company_state_or_province}} (hereinafter referred to as "the Company"), and {{ contract.name }}, residing at {{ contract.street_number_and_name }} (hereinafter referred to as "the Intern"). This agreement formalizes the terms and conditions of the internship, outlining the responsibilities, duties, and obligations of both parties. By signing this contract, both parties affirm their understanding and acceptance of the terms stated herein. This document is enforceable under applicable laws and regulations, ensuring that both the Company and the Intern uphold the agreed-upon standards and responsibilities. Any modifications or disputes related to this contract shall be addressed in accordance with the governing legal framework.
-    </p>
-    <br>
+    <h2 class="l-main"> NOW THEREFORE THE PARTIES AGREE AS FOLLOWS</h2>
 
-    <p style="display: inline; border-bottom: 1px dashed #000; padding-bottom: 2px;">Intern Supervisor:</p>
+    <h2 class="main-font">1. APPOINTMENT</h2>
+    <p><b>{{ contract.company_name }}</b> hereby appoints the Intern to perform the services set out in the
+     job description, for a fixed contract period commencing on {{ contract.start_date }} and </p>
+    <p>terminating on {{ contract.end_date }} , irrespective of the date of signing this Agreement.</p>
+    <h2 class="main-font"> 2. REMUNERATION</h2>
+
+    <p>2.1 <b>{{ contract.company_name }}</b> shall pay the Intern an all-inclusive amount of R---,----
+    per month.</p>
+    <p>2.2 If the Intern is required to travel and subsist anywhere outside <strong>{{ contract.company_city }}</strong>, in the
+    course of his/her assigned duties,</p> 
+    <p>he/she shall be entitled to the normal subsistence and
+    traveling allowance for which employees of <b>{{ contract.company_name }}</b> are eligible
+    </p>
+    <h2 class="main-font">3. WORKING HOURS AND LEAVE</h2>
+    <p> 3.1 The Intern shall work 40 hours per week and 8 hours per day (meal intervals excluded).</p>
+    <p>3.2 All the prescripts regarding annual, sick, special, maternity, family responsibility leave and all other kinds of </p>
+    <p>leave (if any) and related leave prescripts for employees
+        appointed in a full-time capacity under the Act, shall be applicable to the Intern.</p>
+
+    <h2 class="main-font">4. OBLIGATIONS OF <b>{{ contract.company_name }}</b> WITH
+        REGARD TO <strong>{{  contract.intern_title }}</strong>’S PERFORMANCE</h2>
+    <p>
+        4.1 <b>{{ contract.company_name }}</b> shall make every effort to ensure that the work assigned to the <strong>{{  contract.intern_title }}</strong>
+        is,</p> 
+        <p>insofar as practically possible, intellectually challenging and shall seek to draw out the
+        <strong>{{  contract.intern_title }}</strong>’s educational, technical, and vocational skills to the full.</p>
+    <p> 4.2 <b>{{ contract.company_name }}</b> shall ensure that at least one mentor is assigned to supervise
+        the work of the <strong>{{  contract.intern_title }}</strong></p> 
+        <p>and to assess the performance of the Intern on a regular basis in
+        accordance with the job description.
+    </p>
+
+    <h2 class="main-font"> 5. CONDUCT</h2>
+    <p> 5.1 The <strong>{{  contract.intern_title }}</strong> shall comply with all the prescripts referred to in clause 1.2 and all internal
+        financial and other workplace policies of <b>{{ contract.company_name }}.</b></p>
+    <p> 5.2 The Intern shall:</p>
+    <p> (a) Faithfully and diligently devote his or her time to the service of <b>{{ contract.company_name }}</b>
+        as agreed upon; and</p>
+    <p> (b) Undertake duties in accordance with Appendix A, as any person duly authorized
+        thereto by <b>{{ contract.company_name }}</b>for this purpose requires of him or her.</p>
+    <p> 5.3 The <strong>{{  contract.intern_title }}</strong> may not during the period of this Agreement or anytime thereafter,
+        disclose or use any record, or any part thereof, obtained as a result of his or her employment under this Agreement</p>
+    <p>, except if: (a) The necessary written authorization has been
+        obtained; or (b) Required or permitted by law.</p>
+
+    <h2 class="main-font"> 6. TERMINATION OF EMPLOYMENT/INTERNSHIP</h2>
+    <p> 6.1 The term of service of the Intern shall terminate at the date referred to in Clause 1.1
+        or, if he or she resigns or is discharged in terms of section 17 of the Act.</p>
+
+    <h2 class="main-font"> 7. GENERAL TERMS AND CONDITIONS</h2>
+    <p class="l-main" style="font-size: 15px;">7.1 GOOD FAITH</p>
+    <p> 
+        In the implementation of this Agreement, the parties undertake to observe the utmost
+        good faith and warrant in their dealings with each other that they</p>
+         <p>shall neither do any
+       thing nor refrain from doing anything that might prejudice or detract from the rights,
+        assets, or interests of each other.
+        </p>
+    <h2 class="l-main" style="font-size: 15px;">7.2 JURISDICTION OF THE COURTS</h2>
+
+    <p> The parties to this Agreement submit to the jurisdiction of the Courts of the Republic
+        of South Africa in the event of</p> 
+        <p>any legal proceedings arising from the provisions of this
+        Agreement.
+       </p>
+
+    <h2 class="main-font">SIGNATURES</h2>
+
+    <row><p style="font-size: 18px; color: #474444;"><strong>{{ contract.company_name }}: <p style="font-size: 12px;"><strong>DATE: <span id="current-date"></span></strong></p></strong></p>
+        <img src="{% static 'images/signature.png' %}" alt="Intern Signature" class="signature-img" />
     
-    <br></br>
-
-        <p> {{ contract.intern_supervisor }}</p>
-        <p>{{ contract.supervisor_phone }}</p>
-        <p>{{ contract.supervisor_email }}</p>
-
-    <div class="signature-section">
-        <div class="signature-item">
-            <div class="signature-line">
-                {% if contract.intern_signature %}
-                    <img src="{{ contract.intern_signature }}" alt="Intern Signature" class="signature-img" />
-                {% else %}
-                    <p class="signature-placeholder">No Intern Signature</p>
-                {% endif %}
-            </div>
-            <p class="signature-title"><i>Intern Signature</i></p>
-        </div>
+    </row>
+    <br><br><br>
+    <row>
+        <p style="font-size: 18px; color: #474444;"><strong>{{  contract.intern_title }}:   <p style="font-size: 12px;"><strong>DATE: <span id="current-date-1"></span></strong></p></strong></p>
+        {% if contract.intern_signature %}
+        <img src="{{ contract.intern_signature }}" alt="Intern Signature" class="signature-img" />
+    {% else %}
+        <p class="signature-placeholder">No Intern Signature</p>
+    {% endif %}
     
-        <div class="signature-item-b">
-            <div class="signature-line">
-                {% if contract.hr_signature %}
-                    <img src="{{ contract.hr_signature }}" alt="HR Signature" class="signature-img" />
-                {% else %}
-                    <p class="signature-placeholder">No HR Signature</p>
-                {% endif %}
-            </div>
-            <p class="signature-title"><i>Legal/HR Practitioner</i></p>
-            <br><br>
-        </div>
-
-        <div class="signature-item-c">
-            <div class="signature-line">
-                {% if contract.supervisor_signature %}
-                    <img src="{{ contract.supervisor_signature }}" alt="Intern Signature" class="signature-img" />
-                {% else %}
-                    <p class="signature-placeholder">Awaiting supervisor signature</p>
-                {% endif %}
-            </div>
-            <p class="signature-title"><i>Supervisor Signature</i></p>
-        </div>
-        
-    </div>
+    </row>
 </section>
     <br></br>
     <a href="{% url 'edit_contract' contract.id %}" class="link">Edit Contract</a> 
-    <a href="{% url 'show' contract.id%}" class="link">Download Contract</a>
+    <a href="{% url 'download_contract' contract.id%}" class="link">Download Contract</a>
     <br><br>
     <form action="{% url 'send_contract_to_supervisor' contract.id %}" method="post">
         {% csrf_token %}
@@ -320,5 +319,23 @@
     </p>
         <p style="font-size: 11px; font-family: Arial, Helvetica, sans-serif;"><span class="span-m">&copy; 2024 Cranium. All rights reserved.</span></p>
     </div>
+
+    <script>
+        function formatDate(date) {
+            const options = { day: '2-digit', month: 'short', year: 'numeric' };
+            return new Intl.DateTimeFormat('en-US', options).format(date);
+        }
+
+        document.getElementById('current-date').textContent = formatDate(new Date());
+    </script>
+
+<script>
+    function formatDate(date) {
+        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+    }
+
+    document.getElementById('current-date-1').textContent = formatDate(new Date());
+</script>
 </body>
 </html>
